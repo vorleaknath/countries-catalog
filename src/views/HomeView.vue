@@ -35,6 +35,7 @@ export default {
     return {
       countries: [],
       searchQuery: '',
+      sortOrder: 'asc',
       visibleCountries: [],
       currentPage: 0,
       pageSize: 25,
@@ -87,6 +88,32 @@ export default {
         })
       }
     },
+    
+    // Sort Countries by country's name
+    async sortCountries() {
+      const order = this.sortOrder
+      await axios
+      .get('https://restcountries.com/v3.1/all')
+      .then(response => {
+        let result  = response.data.sort((country1,country2) => {
+          country1 =country1.name.official
+          country2 = country2.name.official
+          if(order === 'asc') {
+            if(country1 < country2) return -1
+            else if(country1 > country2) return 1
+        
+          }else if (order ==='desc') {
+            if(country1 > country2) return -1
+            else if (country1 < country2) return 1
+          }
+        })
+
+        this.visibleCountries = result.slice(this.currentPage * this.pageSize,(this.pageSize * this.currentPage) + this.pageSize)
+      })
+      .catch(error => {
+        console.error(error)
+      })
+    }
   },
   created() {
     this.fetchCountries()
