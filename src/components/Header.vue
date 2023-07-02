@@ -24,7 +24,6 @@ export default {
       const searchQuery = this.searchQuery
 
       this.$emit('btn-search', searchQuery)
-      this.searchQuery = ''
     }
   }
 }

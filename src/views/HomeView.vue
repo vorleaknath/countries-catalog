@@ -100,11 +100,11 @@ export default {
           country2 = country2.name.official
           if(order === 'asc') {
             if(country1 < country2) return -1
-            else if(country1 > country2) return 1
+            // else if(country1 > country2) return 1
         
           }else if (order ==='desc') {
             if(country1 > country2) return -1
-            else if (country1 < country2) return 1
+            // else if (country1 < country2) return 1
           }
         })
 
