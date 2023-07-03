@@ -10,7 +10,7 @@
         </button>
       </li>
       <li>
-        <button v-if="showNextPage" @click="updatePage(currentPage + 1)" class="bg-gray-100 px-2 py-2 rounded-r-lg border border-gray-300 hover:bg-gray-300 ">Previous</button>
+        <button v-if="showNextPage" @click="updatePage(currentPage + 1)" class="bg-gray-100 px-2 py-2 rounded-r-lg border border-gray-300 hover:bg-gray-300 ">Next</button>
       </li>
     
   </ul>
